@@ -1,0 +1,20 @@
+{
+  "name": "com.huleibo.plugins.smsverification",
+  "version": "0.0.1",
+  "description": "SMS Verficiation lugin",
+  "cordova": {
+    "id": "com.huleibo.plugins.smsverification",
+    "platforms": [
+      "ios"
+    ]
+  },
+  "keywords": [
+    "cordova",
+    "SMS",
+    "Verficiation",
+    "ecosystem:cordova",
+    "cordova-ios"
+  ],
+  "author": "dbai",
+  "license": "GPL"
+}

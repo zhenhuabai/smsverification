@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<plugin xmlns="http://apache.org/cordova/ns/plugins/1.0"
+    id="com.huleibo.plugins.smsverification"
+    version="0.0.1">
+    <name>SMSVerification</name>
+    <description>SMS Verficiation lugin</description>
+    <license>GPL</license>
+	<keywords>cordova, SMS, Verficiation </keywords>
+
+    <!-- www -->
+    <js-module src="www/sms.js" name="SMSVerification">
+        <clobbers target="plugins.smsverification" />
+    </js-module>
+
+    <!-- ios -->
+    <platform name="ios">
+        <config-file target="config.xml" parent="/*">
+            <feature name="SMSVerification">
+                <param name="ios-package" value="CDVSMSPlugin" />
+            </feature>
+        </config-file>
+		<config-file target="*-Info.plist" parent="MOBAppKey">
+			<string>1ec535abd2d04</string>
+		</config-file>
+		<config-file target="*-Info.plist" parent="MOBAppSecret">
+			<string>fb7512582b723675d3f35f04699ec220</string>
+		</config-file>
+        <!-- SMS framework -->
+        <framework src="libz.dylib" />
+        <framework src="libstdc++.dylib" />
+		<framework src="src/ios/SDK/SMSSDK/SMS_SDK.framework" custom="true" />
+		<framework src="src/ios/SDK/Required/MOBFoundation.framework" custom="true" />
+
+        <!-- Plugin Code / Channel Management code -->
+        <header-file src="src/ios/CDVSMSPlugin.h" />
+        <source-file src="src/ios/CDVSMSPlugin.m" />
+
+    </platform>
+    <!-- android -->
+    <!-- platform name="android">
+            <config-file target="res/xml/config.xml" parent="/*">
+            <feature name="SSH">
+                <param name="android-package" value="com.calix.plugins.SshPlugin" />
+            </feature>
+        </config-file>
+        <source-file src="src/android/SshPlugin.java" target-dir="src/com/calix/plugins" />
+        <source-file src="src/android/libs/jsch-0.1.44.jar" target-dir="libs" />
+    </platform -->
+
+</plugin>
