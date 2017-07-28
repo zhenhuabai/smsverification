@@ -8,8 +8,8 @@
 	<keywords>cordova, SMS, Verficiation </keywords>
 
     <!-- www -->
-    <js-module src="www/sms.js" name="SMSVerification">
-        <clobbers target="plugins.smsverification" />
+    <js-module src="www/sms.js" name="smsverification">
+        <clobbers target="smsverification" />
     </js-module>
 
     <!-- ios -->
