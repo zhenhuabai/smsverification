@@ -80,17 +80,17 @@
 			}
 			if (code != nil && [code length] > 0) {
 				if (phoneNumber != nil && [phoneNumber length] > 0) {
-					[SMSSDK getVerificationCodeByMethod:SMSGetCodeMethodSMS phoneNumber:phoneNumber zone:zone result:^(NSError *error) {
+					[SMSSDK commitVerificationCode: code phoneNumber:phoneNumber zone:zone result:^(NSError *error) {
 						if (!error)
 						{
-							NSLog(@"- Succeeded sending code to Phone:%@ by zone:%@ ", phoneNumber, zone);
-							result = [CDVPluginResult resultWithStatus:CDVCommandStatus_OK messageAsString:@"Code sent OK"];
+							NSLog(@"- Succeeded verifying code %@ with Phone:%@ by zone:%@ ", code, phoneNumber, zone);
+							result = [CDVPluginResult resultWithStatus:CDVCommandStatus_OK messageAsString:@"Code verified OK"];
 						}
 						else
 						{
                             NSString *es = [NSString stringWithFormat:@"Error(%@)",[error localizedDescription]];
                             result = [CDVPluginResult resultWithStatus:CDVCommandStatus_ERROR messageAsString:es];
-							NSLog(@"- Error(%@) sending code to Phone:%@ by zone:%@ ",[error localizedDescription], phoneNumber, zone);
+							NSLog(@"- Error(%@) code(%@) not verified to Phone:%@ by zone:%@ ",[error localizedDescription], code, phoneNumber, zone);
 						}
 					}];
 				} else {

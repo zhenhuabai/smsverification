@@ -14,7 +14,7 @@ SMSVerification.prototype.sendVerificationCode = function (phoneNumber, zone, su
 };
 
 // commit verificaiton code
-SMSVerification.prototype.commitVerificationCode = function (connectionId, successCallback, errorCallback) {
+SMSVerification.prototype.commitVerificationCode = function (phoneNumber, zone, code, successCallback, errorCallback) {
 	exec(successCallback, errorCallback, this.pluginRef, 'commitVerificationCode', [phoneNumber, zone, code]);
 };
 
